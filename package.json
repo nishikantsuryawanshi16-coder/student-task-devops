@@ -1,0 +1,14 @@
+{
+  "name": "student-task-devops",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple Student Task Manager used to demonstrate Git, CI/CD, testing, Docker and deployment.",
+  "scripts": {
+    "test": "node tests/test.js",
+    "build": "node tests/build-check.js",
+    "start": "npx serve ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <p class="eyebrow">DevOps Project</p>
+        <h1>Student Task Manager</h1>
+        <p class="subtitle">Plan your college work, track progress, and stay organized.</p>
+      </div>
+      <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle dark mode">🌙</button>
+    </header>
+
+    <section class="stats" aria-label="Task statistics">
+      <div class="stat-card"><span>Total</span><strong id="totalCount">0</strong></div>
+      <div class="stat-card"><span>Pending</span><strong id="pendingCount">0</strong></div>
+      <div class="stat-card"><span>Completed</span><strong id="completedCount">0</strong></div>
+    </section>
+
+    <section class="card">
+      <h2 id="formTitle">Add a Task</h2>
+      <form id="taskForm">
+        <input type="hidden" id="editingId" />
+        <div class="form-grid">
+          <label>Task title<input id="title" type="text" maxlength="100" placeholder="e.g. Complete DBMS assignment" required /></label>
+          <label>Subject<input id="subject" type="text" maxlength="60" placeholder="e.g. DBMS" required /></label>
+          <label>Due date<input id="dueDate" type="date" /></label>
+          <label>Priority<select id="priority"><option>Low</option><option selected>Medium</option><option>High</option></select></label>
+        </div>
+        <label>Description<textarea id="description" rows="3" maxlength="300" placeholder="Optional notes..."></textarea></label>
+        <div class="form-actions">
+          <button class="primary" type="submit" id="saveButton">Add Task</button>
+          <button class="secondary hidden" type="button" id="cancelEdit">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <div>
+          <h2>Your Tasks</h2>
+          <p class="muted">Tasks are saved in your browser.</p>
+        </div>
+        <button id="clearCompleted" class="danger-outline" type="button">Clear completed</button>
+      </div>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search tasks..." aria-label="Search tasks" />
+        <select id="statusFilter" aria-label="Filter by status"><option value="all">All</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+        <select id="priorityFilter" aria-label="Filter by priority"><option value="all">All priorities</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option></select>
+      </div>
+      <div id="taskList" class="task-list"></div>
+      <div id="emptyState" class="empty-state">No tasks yet. Add your first task above.</div>
+    </section>
+
+    <footer>Student Task Manager • Built as a DevOps CI/CD demonstration</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
